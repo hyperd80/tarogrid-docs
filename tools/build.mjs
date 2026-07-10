@@ -380,7 +380,13 @@ const APP_JS = `
 const DATA = __DATA__;
 const $ = (s) => document.querySelector(s);
 const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const savedTheme = localStorage.getItem("tg-docs-theme");
+// localStorage throws in strictly sandboxed frames (artifact/preview hosts) —
+// never let a storage failure take the whole app down.
+const store = {
+  get(k){ try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v){ try { localStorage.setItem(k, v); } catch {} },
+};
+const savedTheme = store.get("tg-docs-theme");
 if (savedTheme) document.documentElement.dataset.theme = savedTheme;
 else if (matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme = "dark";
 
@@ -473,9 +479,9 @@ function search(q){
 // exists — misses teach us what to write next.
 function logMiss(q){
   try {
-    const log = JSON.parse(localStorage.getItem("tg-docs-miss") || "[]");
+    const log = JSON.parse(store.get("tg-docs-miss") || "[]");
     if (log[log.length-1] && q.startsWith(log[log.length-1])) log.pop(); // keep final form of a growing query
-    log.push(q); localStorage.setItem("tg-docs-miss", JSON.stringify(log.slice(-200)));
+    log.push(q); store.set("tg-docs-miss", JSON.stringify(log.slice(-200)));
   } catch {}
 }
 $("#q").addEventListener("input", e => {
@@ -491,12 +497,13 @@ document.addEventListener("click", e => { if(!e.target.closest(".search")) $("#h
 
 $("#theme").addEventListener("click", () => {
   const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-  document.documentElement.dataset.theme = next; localStorage.setItem("tg-docs-theme", next);
+  document.documentElement.dataset.theme = next; store.set("tg-docs-theme", next);
 });
 $("#menu").addEventListener("click", () => $("#side").classList.toggle("open"));
 window.addEventListener("hashchange", route);
-route();
 `;
+// The boot call lives AFTER the theater player so a direct article-hash load
+// (route → initDemos → thInit) never runs before the engine's code exists.
 
 const bodyHtml = `
 <div class="app">
@@ -519,7 +526,8 @@ const bodyHtml = `
   </div>
 </div>
 <script>${APP_JS.replace("__DATA__", JSON.stringify(appData).replace(/</g, "\\u003c"))}
-${THEATER_JS}<\/script>`;
+${THEATER_JS}
+route();<\/script>`;
 
 const standalone = `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

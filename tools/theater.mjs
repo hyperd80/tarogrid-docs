@@ -241,11 +241,11 @@ export const THEATER_CSS = `
 .t-dots button i{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background-color .2s var(--t-ease),transform .2s var(--t-ease);display:block}
 .t-dots button[aria-current=true] i{background:var(--primary);transform:scale(1.35)}
 .t-dots button:hover i{background:var(--muted)}
-/* ---- static fallback (reduced motion) ---- */
+/* ---- static fallback (reduced motion; capbar stays as an opt-in Play) ---- */
 .t-story{display:none;margin:0;padding:10px 14px 12px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted)}
 .t-story li{margin:4px 0 4px 18px}
 .t-static .t-story{display:block}
-.t-static .t-capbar{display:none}
+.t-static .t-dots{display:none}
 .t-static .t-cursor{display:none}
 .t-static .t-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.t-cursor{display:none!important}}
@@ -257,17 +257,26 @@ export const THEATER_CSS = `
 // ---------------------------------------------------------------------------
 export const THEATER_JS = String.raw`
 /* ---- demo theater player ---- */
-var TH_STAGES = [];
-var TH_IO = null;
+/* All engine state hangs off one lazily-created global so thInit is safe to
+   call from ANY point in the page lifecycle (including before this file's
+   top-level would have run under an early boot). */
+function thState(){
+  if (!window.__thState) window.__thState = { stages: [], io: null, raf: false, ioAlive: false, ioBroken: false };
+  return window.__thState;
+}
 function thInit(){
-  TH_STAGES = TH_STAGES.filter(function(st){ return document.contains(st.el); });
-  if (!TH_IO && "IntersectionObserver" in window){
-    TH_IO = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        var st = TH_STAGES.find(function(s){ return s.el === e.target; });
-        if (st){ st.visible = e.isIntersecting; }
-      });
-    }, {threshold: .35});
+  var TH = thState();
+  TH.stages = TH.stages.filter(function(st){ return document.contains(st.el); });
+  if (!TH.io && "IntersectionObserver" in window){
+    try {
+      TH.io = new IntersectionObserver(function(es){
+        TH.ioAlive = true;
+        es.forEach(function(e){
+          var st = TH.stages.find(function(s){ return s.el === e.target; });
+          if (st){ st.visible = e.isIntersecting; }
+        });
+      }, {threshold: .35});
+    } catch (err) { TH.io = null; }
   }
   document.querySelectorAll(".t-stage[data-demo]").forEach(function(el){
     if (el._th) return;
@@ -284,14 +293,49 @@ function thInit(){
       curOn: false, camS: {s:1, x:0, y:0}, lastTs: null, holdUntil: 0
     };
     if (REDUCED){
+      /* static storyboard, with the Play button as opt-in motion-on-request */
       el.classList.add("t-static");
       st.static = true;
       spec.cues.forEach(function(c){ thRun(st, c.op, true); });
       thCap(st, spec.caps.length - 1);
+      thPlaying(st, false);
+      var pb0 = el.querySelector(".t-playbtn");
+      if (pb0) pb0._wired = true;
+      if (pb0) pb0.addEventListener("click", function(){
+        if (!st.static){ st.userPaused = st.playing; thPlaying(st, !st.playing); return; }
+        st.static = false;
+        el.classList.remove("t-static");
+        thWire(st);
+        thReset(st);
+        st.visible = true; st.noIO = true;
+        TH.stages.push(st);
+        thPlaying(st, true);
+        thLoop();
+      }, false);
       return;
     }
-    var dots = el.querySelector(".t-dots");
-    spec.caps.forEach(function(b, i){
+    thWire(st);
+    TH.stages.push(st);
+    if (TH.io && !TH.ioBroken){
+      TH.io.observe(el);
+      /* fail-open: a working IO always delivers an initial entry per target.
+         If none ever arrives, the host broke IO — play on time instead. */
+      setTimeout(function(){
+        if (!TH.ioAlive){
+          TH.ioBroken = true;
+          TH.stages.forEach(function(s){ s.visible = true; s.noIO = true; });
+        }
+      }, 1200);
+    } else {
+      st.visible = true; st.noIO = true;
+    }
+  });
+  thLoop();
+}
+function thWire(st){
+  var dots = st.el.querySelector(".t-dots");
+  if (dots && !dots.childElementCount){
+    st.spec.caps.forEach(function(b, i){
       var d = document.createElement("button");
       d.setAttribute("aria-label", "Beat " + (i + 1));
       d.setAttribute("aria-current", i === 0 ? "true" : "false");
@@ -299,15 +343,19 @@ function thInit(){
       d.addEventListener("click", function(){ thJump(st, i); });
       dots.appendChild(d);
     });
-    var pb = el.querySelector(".t-playbtn");
-    pb.addEventListener("click", function(){
-      st.userPaused = st.playing;
-      thPlaying(st, !st.playing);
-    });
-    TH_STAGES.push(st);
-    if (TH_IO) TH_IO.observe(el); else st.visible = true;
-  });
-  if (!window._thRaf){ window._thRaf = true; requestAnimationFrame(thTick); }
+    var pb = st.el.querySelector(".t-playbtn");
+    if (pb && !pb._wired){
+      pb._wired = true;
+      pb.addEventListener("click", function(){
+        st.userPaused = st.playing;
+        thPlaying(st, !st.playing);
+      });
+    }
+  }
+}
+function thLoop(){
+  var TH = thState();
+  if (!TH.raf){ TH.raf = true; requestAnimationFrame(thTick); }
 }
 function thPlaying(st, on){
   st.playing = on;
@@ -320,8 +368,9 @@ function thPlaying(st, on){
   }
 }
 function thTick(ts){
-  TH_STAGES = TH_STAGES.filter(function(st){ return document.contains(st.el); });
-  TH_STAGES.forEach(function(st){
+  var TH = thState();
+  TH.stages = TH.stages.filter(function(st){ return document.contains(st.el); });
+  TH.stages.forEach(function(st){
     if (!st.playing || !st.visible) { st.lastTs = null; return; }
     if (st.lastTs == null){ st.lastTs = ts; return; }
     var dt = Math.min(80, ts - st.lastTs); st.lastTs = ts;
