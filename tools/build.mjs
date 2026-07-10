@@ -144,6 +144,24 @@ for (const a of articles) {
     if (!byId[v] && !FUTURE_TITLES[v]) throw new Error(`${a.id} related.${k} → unknown id ${v}`);
   }
 }
+// ---- contextual-help map lint (R5b) ----
+// `windows:` in frontmatter names the app window(s) whose "?" opens this article.
+// The vocabulary mirrors the app's helpContext registry (src/lib/helpContext.ts in
+// the app repo — its unit test checks the OTHER direction: every registered window
+// finds exactly one article in the baked bundle). One window, one article.
+const WINDOW_KEYS = new Set([
+  "command", "ask", "dashboard", "invoices", "expenses", "courierCash", "automations",
+  "stakeholders", "accessMatrix", "model", "campaigns", "sense", "reach", "team",
+  "portfolio", "relationship", "catalog", "salesFormBuilder",
+]);
+const windowClaims = {};
+for (const a of articles) {
+  for (const w of a.windows || []) {
+    if (!WINDOW_KEYS.has(w)) throw new Error(`${a.id}: windows "${w}" — unknown window key (WINDOW_KEYS in build.mjs; must match the app's helpContext registry)`);
+    if (windowClaims[w]) throw new Error(`window "${w}" claimed by both ${windowClaims[w]} and ${a.id} — one window, one article`);
+    windowClaims[w] = a.id;
+  }
+}
 if (/[ঀ-৿৳]/.test(JSON.stringify(synonyms))) throw new Error("synonyms.json: Bangla — owner rule: global-first (localization postponed)");
 
 const TIER_LABEL = { T1: "Understand", T2: "How-to", T3: "Reference", T4: "Fix" };
@@ -162,7 +180,7 @@ const appData = {
       {
         id: a.id, title: a.title, promise: a.promise, tier: a.tier, tierLabel: TIER_LABEL[a.tier] || a.tier,
         status: a.status, statusLabel: STATUS[a.status] || a.status, chapter: a.chapterSlug,
-        keywords: a.keywords || [], html: a.html, text: a.text.toLowerCase(),
+        keywords: a.keywords || [], windows: a.windows || [], html: a.html, text: a.text.toLowerCase(),
         tourCaptions: (DEMOS[a.tour] || []).map((s) => s.cap),
       },
     ])
@@ -546,4 +564,17 @@ fs.mkdirSync(path.join(ROOT, "site"), { recursive: true });
 fs.writeFileSync(path.join(ROOT, "site/index.html"), standalone);
 fs.writeFileSync(path.join(ROOT, "site/artifact.html"), artifact);
 fs.writeFileSync(path.join(ROOT, "site/articles.json"), JSON.stringify(appData, null, 1));
+
+// The in-app help bundle (src/data/helpArticles.json in the app repo):
+// same articles, trimmed to what the in-app Library needs, minified.
+const inApp = {
+  chapters: appData.chapters.map((c) => ({ slug: c.slug, title: c.title, articles: c.articles })),
+  articles: Object.fromEntries(
+    Object.values(appData.articles).map((a) => [
+      a.id,
+      { id: a.id, title: a.title, promise: a.promise, chapter: a.chapter, tierLabel: a.tierLabel, statusLabel: a.statusLabel, keywords: a.keywords, ...(a.windows.length ? { windows: a.windows } : {}), html: a.html, text: a.text },
+    ])
+  ),
+};
+fs.writeFileSync(path.join(ROOT, "site/help-bundle.json"), JSON.stringify(inApp));
 console.log(`Built ${articles.length} articles → site/ (index.html ${(standalone.length / 1024).toFixed(0)} KB) — owner-rule lints passed`);
