@@ -13,17 +13,17 @@ C-05,The four business categories: Money · People · Work · Outreach,1 Core id
 C-06,"Groups, items, and cells — the anatomy of a board",1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-07,Who sees what? Permissions in one page,1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-08,Everything is connected: the map of TaroGrid,1 Core ideas,T1,Live,P0,Published (R1 preview)
-B-01,Create and shape a board,2 Boards & views,T2,Live,P0,Planned
-B-02,Items & the Item panel,2 Boards & views,T1,Live,P0,Planned
-B-03,Views — same data different glasses,2 Boards & views,T1,Live,P0,Planned
-B-04,Table view mastery,2 Boards & views,T2,Live,P0,Planned
-B-05,Kanban view,2 Boards & views,T2,Live,P0,Planned
+B-01,Create and shape a board,2 Boards & views,T2,Live,P0,Published (R3 preview)
+B-02,Items & the Item panel,2 Boards & views,T1,Live,P0,Published (R3 preview)
+B-03,Views — same data different glasses,2 Boards & views,T1,Live,P0,Published (R3 preview)
+B-04,Table view mastery,2 Boards & views,T2,Live,P0,Published (R3 preview)
+B-05,Kanban view,2 Boards & views,T2,Live,P0,Published (R3 preview)
 B-06,Calendar view,2 Boards & views,T2,Live,P1,Planned
 B-07,Timeline / Gantt view,2 Boards & views,T1,Coming soon,P1,Planned
-B-08,"Filter, sort, group & search inside a board",2 Boards & views,T2,Live,P0,Planned
+B-08,"Filter, sort, group & search inside a board",2 Boards & views,T2,Live,P0,Published (R3 preview)
 B-09,Subitems — break work into parts,2 Boards & views,T2,Live,P1,Planned
 B-10,Comments @mentions & the activity feed,2 Boards & views,T2,Live,P1,Planned
-B-11,Undo Trash & restore,2 Boards & views,T1,Live,P0,Planned
+B-11,Undo Trash & restore,2 Boards & views,T1,Live,P0,Published (R3 preview)
 B-12,Board snapshots & cell history,2 Boards & views,T2,Live,P1,Planned
 F-01,What is a field?,3 Fields basics,T1,Live,P1,Planned
 F-02,Choosing the right field type,3 Fields basics,T1,Live,P1,Planned
@@ -63,25 +63,25 @@ S-11,Edit products safely after launch,6 Sell,T2,Live,P0,Published (R2 preview)
 S-12,Sales Form vs classic intake Forms,6 Sell,T1,Live,P0,Published (R2 preview)
 S-13,Shop FAQ & customer-side troubleshooting,6 Sell,T4,Live,P0,Published (R2 preview)
 S-14,Your own domain for your shop,6 Sell,T2,Coming soon · Paid,P0,Published (R2 preview)
-S-15,The life of an order,7 Orders & delivery,T1,Live,P0,Planned
-S-16,Confirm & dispatch,7 Orders & delivery,T2,Live,P0,Planned
-S-17,Connect a courier,7 Orders & delivery,T2,Live,P0,Planned
-S-18,Track deliveries,7 Orders & delivery,T2,Live,P0,Planned
-S-19,Courier Cash — where your COD money is,7 Orders & delivery,T1,Live,P0,Planned
-S-20,Fetch payouts — auto-reconcile courier statements,7 Orders & delivery,T2,Live · Limited,P0,Planned
-S-21,Manual remittance entry,7 Orders & delivery,T2,Live,P0,Planned
-S-22,Handling risky orders in real life,7 Orders & delivery,T2,Live,P0,Planned
-S-23,Returns & refusals,7 Orders & delivery,T2,Live,P0,Planned
-S-24,Orders on your phone,7 Orders & delivery,T2,Live,P0,Planned
-M-01,The Money map,8 Money,T1,Live,P0,Planned
-M-02,Invoice Center — create your first invoice,8 Money,T2,Live,P0,Planned
+S-15,The life of an order,7 Orders & delivery,T1,Live,P0,Published (R3 preview)
+S-16,Confirm & dispatch,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-17,Connect a courier,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-18,Track deliveries,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-19,Courier Cash — where your COD money is,7 Orders & delivery,T1,Live,P0,Published (R3 preview)
+S-20,Fetch payouts — auto-reconcile courier statements,7 Orders & delivery,T2,Live · Limited,P0,Published (R3 preview)
+S-21,Manual remittance entry,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-22,Handling risky orders in real life,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-23,Returns & refusals,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+S-24,Orders on your phone,7 Orders & delivery,T2,Live,P0,Published (R3 preview)
+M-01,The Money map,8 Money,T1,Live,P0,Published (R3 preview)
+M-02,Invoice Center — create your first invoice,8 Money,T2,Live,P0,Published (R3 preview)
 M-03,Brand profiles,8 Money,T2,Live,P1,Planned
-M-04,Publish & share an invoice,8 Money,T1,Live,P0,Planned
-M-05,Invoice lifecycle,8 Money,T1,Live,P0,Planned
+M-04,Publish & share an invoice,8 Money,T1,Live,P0,Published (R3 preview)
+M-05,Invoice lifecycle,8 Money,T1,Live,P0,Published (R3 preview)
 M-06,Receipts & Proposals,8 Money,T2,Live,P1,Planned
 M-07,Recurring invoices,8 Money,T2,Live,P1,Planned
-M-08,Get paid online: connect your payment gateway,8 Money,T2,Live,P0,Planned
-M-09,Expenses — track money out,8 Money,T1,Live,P0,Planned
+M-08,Get paid online: connect your payment gateway,8 Money,T2,Live,P0,Published (R3 preview)
+M-09,Expenses — track money out,8 Money,T1,Live,P0,Published (R3 preview)
 M-10,Recurring expenses & auto-captured fees,8 Money,T2,Live · Limited,P1,Planned
 M-11,Who can see money?,8 Money,T2,Live,P1,Planned
 M-12,Money FAQ,8 Money,T4,Live,P1,Planned
@@ -101,20 +101,20 @@ K-05,Portfolio & project views,10 Work,T2,Live,P2,Planned
 K-06,Classic intake forms on your boards,10 Work,T2,Live,P2,Planned
 K-07,Build a mini-CRM in Work,10 Work,T2,Live,P2,Planned
 K-08,Patterns library: 10 board recipes,10 Work,T3,Live,P2,Planned
-AU-01,Automations — hire a robot for the boring parts,11 Automations,T1,Live,P0,Planned
-AU-02,The anatomy of a rule,11 Automations,T1,Live,P0,Planned
+AU-01,Automations — hire a robot for the boring parts,11 Automations,T1,Live,P0,Published (R3 preview)
+AU-02,The anatomy of a rule,11 Automations,T1,Live,P0,Published (R3 preview)
 AU-03,The Automation Studio,11 Automations,T2,Live,P1,Planned
 AU-04,Checks that make rules smart,11 Automations,T2,Live,P1,Planned
-AU-05,The Recipe Gallery,11 Automations,T3,Live,P0,Planned
+AU-05,The Recipe Gallery,11 Automations,T3,Live,P0,Published (R3 preview)
 AU-06,Selling recipes in depth,11 Automations,T2,Live,P1,Planned
 AU-07,Automations + computed fields,11 Automations,T1,Live,P1,Planned
 AU-08,Notifications & who gets told,11 Automations,T2,Live,P1,Planned
 AU-09,Safety: rules fire once confirm cards off-by-default,11 Automations,T1,Live,P1,Planned
 AU-10,Troubleshooting: my automation didn't run,11 Automations,T4,Live,P1,Planned
-A-01,Meet ASK — one bar to find ask and act,12 ASK,T1,Live,P0,Planned
+A-01,Meet ASK — one bar to find ask and act,12 ASK,T1,Live,P0,Published (R3 preview)
 A-02,FIND anything,12 ASK,T2,Live,P1,Planned
 A-03,ASK questions,12 ASK,T2,Live,P1,Planned
-A-04,ACT: create an order by typing a sentence,12 ASK,T1,Live,P0,Planned
+A-04,ACT: create an order by typing a sentence,12 ASK,T1,Live,P0,Published (R3 preview)
 A-05,ACT: log expenses & income in one line,12 ASK,T2,Live,P1,Planned
 A-06,ACT: drafts tasks & contacts from the bar,12 ASK,T2,Live,P1,Planned
 A-07,The safety contract,12 ASK,T1,Live,P1,Planned
@@ -151,24 +151,24 @@ D-07,Trash restore & snapshots,16 Data tools,T2,Live,P1,Planned
 D-08,Keyboard & speed,16 Data tools,T3,Live,P1,Planned
 T-01,Your account & profile,17 Settings & team,T2,Live,P1,Planned
 T-02,Workspace settings,17 Settings & team,T2,Live,P1,Planned
-T-03,Members & roles in practice,17 Settings & team,T1,Live,P0,Planned
-T-04,The Access Center — per-module permissions,17 Settings & team,T1,Live,P0,Planned
+T-03,Members & roles in practice,17 Settings & team,T1,Live,P0,Published (R3 preview)
+T-04,The Access Center — per-module permissions,17 Settings & team,T1,Live,P0,Published (R3 preview)
 T-05,Plan limits & locked features,17 Settings & team,T1,Limited,P1,Planned
 T-06,Security basics,17 Settings & team,T2,Live · Coming soon,P1,Planned
 T-07,Billing & subscription,17 Settings & team,T2,Coming soon,P1,Planned
 T-08,Danger zone: deleting things that matter,17 Settings & team,T1,Live,P1,Planned
-X-01,Where TaroGrid runs,18 Apps & sync,T1,Live,P0,Planned
+X-01,Where TaroGrid runs,18 Apps & sync,T1,Live,P0,Published (R3 preview)
 X-02,The web app & signing in,18 Apps & sync,T2,Live,P2,Planned
 X-03,The desktop app,18 Apps & sync,T2,Live,P2,Planned
 X-04,TaroGrid on your phone,18 Apps & sync,T2,Live,P2,Planned
-X-05,How sync works & fixing conflicts,18 Apps & sync,T1,Live,P0,Planned
+X-05,How sync works & fixing conflicts,18 Apps & sync,T1,Live,P0,Published (R3 preview)
 X-06,Presence: see who's here,18 Apps & sync,T1,Live,P2,Planned
-Q-01,Troubleshooting index,19 Fix it,T4,Live,P0,Planned
-Q-02,My order didn't appear,19 Fix it,T4,Live,P0,Planned
-Q-03,Courier Cash doesn't match what the courier says,19 Fix it,T4,Live,P0,Planned
+Q-01,Troubleshooting index,19 Fix it,T4,Live,P0,Published (R3 preview)
+Q-02,My order didn't appear,19 Fix it,T4,Live,P0,Published (R3 preview)
+Q-03,Courier Cash doesn't match what the courier says,19 Fix it,T4,Live,P0,Published (R3 preview)
 Q-04,My email went to Spam,19 Fix it,T4,Live,P1,Planned
 Q-05,A teammate can't see X,19 Fix it,T4,Live,P1,Planned
 Q-06,My automation didn't run,19 Fix it,T4,Live,P1,Planned
-Q-07,I edited a cell and it changed back,19 Fix it,T4,Live,P0,Planned
+Q-07,I edited a cell and it changed back,19 Fix it,T4,Live,P0,Published (R3 preview)
 Q-08,Contact support,19 Fix it,T2,Live,P1,Planned
-GL,Glossary — every term one line + link (EN + বাংলা),19 Fix it,T3,Live,P0,Planned
+GL,Glossary — every term one line + link (EN + বাংলা),19 Fix it,T3,Live,P0,Published (R3 preview)

@@ -185,6 +185,149 @@ export const DEMOS = {
     { cap: "One order row, five selling superpowers.", art: `<div class="k-split">${board(row(`<span class="k-cellv">Anika</span>` + `<span class="k-chip sm">🌹 ×1</span>` + `<span class="k-cellv">$59</span>` + `<span class="k-light g"></span>` + `<span class="k-chip sm">🚚</span>`, "hl-row"), "ORDERS")}</div>` },
     { cap: "Product chip → true total → fraud light → courier → cash on delivery.", art: `<div class="k-split">${chip("🌹 product", "sm pop")}${chip("$59 total", "sm pop")}${chip("🟢 fraud", "sm pop d2")}${chip("🚚 courier", "sm pop d2")}${chip("💵 COD", "sm pop d3")}</div>` },
   ],
+  // ---- Chapter 7: Orders & delivery ----
+  "order-life": [
+    { cap: "An order is born Pending — a customer just tapped Order.", art: `<div class="k-split">${chip("Pending")}${chip("Confirmed", "sm")}${chip("Booked", "sm")}${chip("Delivered", "sm")}</div>` },
+    { cap: "You confirm it — your one human decision per order.", art: `<div class="k-split">${chip("Pending", "sm")}${arrow()}${chip("✓ Confirmed", "good pop")}</div>` },
+    { cap: "Booked, in transit, delivered — the row updates itself.", art: `<div class="k-split">${chip("🚚 Booked", "pop")}${arrow()}${chip("📦 In transit", "pop d2")}${arrow()}${chip("✓ Delivered", "good pop d3")}</div>` },
+    { cap: "Reconciled: the courier's payout matched your row. The story ends where it should — in your pocket.", art: `<div class="k-split">${chip("💵 $59 reconciled ✓", "good pop")}</div>` },
+  ],
+  "confirm-dispatch": [
+    { cap: "Scan the lights, select the safe rows, confirm them together.", art: `<div class="k-split">${board(r3("hl-row") + r3("hl-row") + r3("hl-row"), "4 SELECTED")}</div>` },
+    { cap: "The dispatch recipe books every courier — while you pack.", art: `<div class="k-split">${chip("🚚 booked ×4", "pop")}${chip("tracking IDs written ✓", "good pop d2")}</div>` },
+  ],
+  "courier-connect": [
+    { cap: "Your courier account details go into Settings — once.", art: `<div class="k-split">${win("Settings · Couriers", `account key <span class="k-cellv">••••••</span>`)}</div>` },
+    { cap: "Connected — every order row can now book with one click.", art: `<div class="k-split">${chip("Courier connected ✓", "good pop")}</div>` },
+  ],
+  "track-deliveries": [
+    { cap: "Delivery statuses refresh themselves — no portal-checking.", art: `<div class="k-split">${chip("📦 In transit ×3")}${chip("✓ Delivered ×2", "good pop")}</div>` },
+    { cap: "A Returned parcel raises its hand — and offers to restock.", art: `<div class="k-split">${chip("↩ Returned", "pop")}${arrow()}${chip("restock Rose Dress? +1", "pop d2")}</div>` },
+  ],
+  "courier-cash": [
+    { cap: "The question this window answers: where is my cash-on-delivery money?", art: `<div class="k-split">${win("Courier Cash", `To collect: <b>$236</b>`)}</div>` },
+    { cap: "Per courier: to collect · paid to you · needs review — and when they last paid.", art: `<div class="k-split">${chip("To collect $118")}${chip("Paid to you $944", "good")}${chip("Needs review $59", "pop")}</div>` },
+    { cap: "A payout arrives → TaroGrid matches each line to your orders by tracking ID.", art: `<div class="k-split">${chip("payout: 6 lines")}${arrow()}${chip("6 orders matched ✓", "good pop")}</div>` },
+    { cap: "An unmatched line is never silently absorbed — it waits for your eyes.", art: `<div class="k-split">${chip("1 line needs review 👀", "pop")}</div>` },
+  ],
+  "fetch-payouts": [
+    { cap: "Where your courier supports it: fetch the payout statement with one click.", art: `<div class="k-split">${chip("Fetch payouts ⬇", "pop")}</div>` },
+    { cap: "“6 orders reconciled · 1 line needs review.” Honest math, every time.", art: `<div class="k-split">${chip("6 reconciled ✓", "good pop")}${chip("1 needs review", "pop d2")}</div>` },
+  ],
+  "manual-remit": [
+    { cap: "Any courier, any payout: log what they paid you.", art: `<div class="k-split">${win("Log payout", `courier · date · <b>$285</b>`)}</div>` },
+    { cap: "Matched orders flip to Reconciled together.", art: `<div class="k-split">${chip("5 orders → Reconciled ✓", "good pop")}</div>` },
+  ],
+  "returns-restock": [
+    { cap: "A parcel comes back. First: put the product back on the shelf.", art: `<div class="k-split">${chip("↩ Returned")}${arrow()}${chip(`stock <span class="k-count"><span class="a">11</span><span class="b">12</span></span>`, "pop")}</div>` },
+    { cap: "Then the honest part: a return cost you two delivery fees. Count it.", art: `<div class="k-split">${chip("return cost: $10 logged", "pop")}</div>` },
+  ],
+  "phone-orders": [
+    { cap: "On your phone, orders become cards — everything important at a glance.", art: `<div class="k-split"><div class="k-phone"><span class="k-chip sm">Anika · $59</span><div class="k-line"></div><span class="k-light g"></span></div></div>` },
+    { cap: "Swipe to confirm. Packing with one hand, running the shop with the other.", art: `<div class="k-split">${chip("→ swiped: Confirmed ✓", "good pop")}</div>` },
+  ],
+  // ---- Chapter 8: Money ----
+  "money-map": [
+    { cap: "Money in: an order becomes an invoice, a payment, a receipt.", art: `<div class="k-split">${chip("order")}${arrow()}${chip("invoice")}${arrow()}${chip("payment", "pop")}${arrow()}${chip("receipt", "pop d2")}</div>` },
+    { cap: "Money out: expenses, logged as they happen.", art: `<div class="k-split">${chip("📉 ads $20", "pop")}${chip("packaging $8", "pop d2")}</div>` },
+    { cap: "And the one number that matters: net — did I make money?", art: `<div class="k-split">${win("Net this month", `<b>+$486</b> ✓`, "pop")}</div>` },
+  ],
+  "first-invoice": [
+    { cap: "Line items, right on the invoice: product, quantity, price.", art: `<div class="k-split">${win("Invoice · draft", `🌹 ×1 — $59<br>🧣 ×2 — $38`)}</div>` },
+    { cap: "The total builds itself as you type.", art: `<div class="k-split">${chip("Total: $97", "pop")}</div>` },
+    { cap: "It's a draft — no number yet, edit freely.", art: `<div class="k-split">${chip("DRAFT · no number until published", "sm")}</div>` },
+  ],
+  "publish-invoice": [
+    { cap: "Publish mints a real number — never reused, never edited after.", art: `<div class="k-split">${chip("INV-2026-014 ✓", "good pop")}</div>` },
+    { cap: "Your customer gets a public page — no account needed.", art: `<div class="k-split">${phone("View invoice")}</div>` },
+    { cap: "When they open it, you see it: Viewed.", art: `<div class="k-split">${chip("👁 Viewed · 2:14 pm", "pop")}</div>` },
+  ],
+  "invoice-life": [
+    { cap: "An invoice walks a public, honest life.", art: `<div class="k-split">${chip("Draft", "sm")}${chip("Sent", "sm")}${chip("Viewed", "sm")}${chip("Paid", "good sm")}</div>` },
+    { cap: "Paid stamps itself when the money is verified real.", art: `<div class="k-split">${chip("💳 payment verified")}${arrow()}${chip("PAID ✓", "good pop")}</div>` },
+    { cap: "Overdue? A reminder recipe nudges — so you don't have to.", art: `<div class="k-split">${chip("⏰ Overdue", "pop")}${arrow()}${chip("reminder sent", "pop d2")}</div>` },
+  ],
+  "gateway-connect": [
+    { cap: "Connect your payment gateway once, in Settings.", art: `<div class="k-split">${win("Settings · Payments", "gateway connected ✓")}</div>` },
+    { cap: "Every public invoice grows a Pay button.", art: `<div class="k-split">${phone("Pay $59")}</div>` },
+    { cap: "Real money verified → Paid stamps itself. No screenshots accepted.", art: `<div class="k-split">${chip("PAID ✓ · receipt minted", "good pop")}</div>` },
+  ],
+  "expense-ask": [
+    { cap: "The fastest expense entry is a sentence.", art: `<div class="k-split">${chip("⌘K · “spent 20 on boost”")}</div>` },
+    { cap: "ASK shows a confirm card — nothing happens until you agree.", art: `<div class="k-split">${win("New expense?", `Ads — <b>$20</b> · today ${chip("Confirm", "sm good")}`, "pop")}</div>` },
+    { cap: "Confirmed — and your net already knows.", art: `<div class="k-split">${chip("logged ✓", "good pop")}${chip("net updated", "pop d2")}</div>` },
+  ],
+  // ---- Chapter 2: Boards & views ----
+  "build-board": [
+    { cap: "A blank board. Name it for what a row will be: “Deliveries.”", art: `<div class="k-split">${board(``, "DELIVERIES")}</div>` },
+    { cap: "Groups appear — stages you'd say out loud.", art: `<div class="k-split">${board(`<div class="k-gband pop">NEW</div><div class="k-gband g2 pop">DONE</div>`, "DELIVERIES")}</div>` },
+    { cap: "Columns: one fact each. Rows will do the rest.", art: `<div class="k-split">${board(`<div class="k-gband">NEW</div>` + r3("pop"), "DELIVERIES")}</div>` },
+  ],
+  "item-panel": [
+    { cap: "Click a row — the Item panel slides in.", art: `<div class="k-split">${board(r3() + r3("hl-row"))}${arrow()}${win("Anika's order", "fields · files · comments", "pop")}</div>` },
+    { cap: "Everything about one thing, in one place — including who changed what.", art: `<div class="k-split">${win("Anika's order", `💬 2 comments · 📎 1 file · <span class="k-hist">● ● ●</span> history`)}</div>` },
+  ],
+  "views-glasses": [
+    { cap: "The board is the data. A view is a pair of glasses.", art: `<div class="k-split">${board(r3() + r3("hl-row"), "TABLE")}</div>` },
+    { cap: "Same rows as cards on a Kanban — drag between stages.", art: `<div class="k-split">${win("Pending", `<span class="k-chip sm hl">Anika</span>`, "sm")}${win("Confirmed", `<span class="k-chip sm">Tomas</span>`, "sm")}</div>` },
+    { cap: "Same rows on a Calendar — anything with a date has a place.", art: `<div class="k-split">${win("March", `Tue · <span class="k-chip sm hl">Anika</span>`, "sm")}</div>` },
+  ],
+  "table-mastery": [
+    { cap: "Pin the header — scroll 5,000 rows without losing the labels.", art: `<div class="k-split">${board(r3() + r3() + r3(), "HEADER STAYS ⤓")}</div>` },
+    { cap: "Drag columns into your order; resize to fit your eyes.", art: `<div class="k-split">${chip("↔ column moved", "pop")}</div>` },
+  ],
+  "kanban-drag": [
+    { cap: "Drag a card from Pending to Confirmed…", art: `<div class="k-split">${win("Pending", "", "sm")}${arrow()}${win("Confirmed", `<span class="k-chip sm pop">Anika ✓</span>`, "sm")}</div>` },
+    { cap: "…and the Table's status cell flips too. One truth, many glasses.", art: `<div class="k-split">${board(row(cell() + `<span class="k-cellv pop">Confirmed</span>` + cell(), "hl-row"))}</div>` },
+  ],
+  "filter-stack": [
+    { cap: "Stack filters like sentences: Status is Pending…", art: `<div class="k-split">${chip("Status: Pending ✕")}${chip("42 rows", "sm")}</div>` },
+    { cap: "…and City is Riverside. The count updates live.", art: `<div class="k-split">${chip("Status: Pending ✕")}${chip("City: Riverside ✕", "pop")}${chip("7 rows", "sm pop d2")}</div>` },
+    { cap: "Clear the chips, everything returns. Filters hide, never delete.", art: `<div class="k-split">${chip("filters cleared · 214 rows", "pop")}</div>` },
+  ],
+  "undo-trash": [
+    { cap: "Deleted something? It went to Trash — not to heaven.", art: `<div class="k-split">${chip("🗑️ Trash · restorable")}</div>` },
+    { cap: "Restore brings it back, history and all.", art: `<div class="k-split">${chip("restored ✓", "good pop")}</div>` },
+    { cap: "And a 500-row import? One undo step. Never be afraid to click.", art: `<div class="k-split">${chip("Undo import · 500 rows swept back", "pop")}</div>` },
+  ],
+  // ---- Chapter 11: Automations ----
+  "rule-card": [
+    { cap: "An automation is a written-down habit: WHEN this happens…", art: `<div class="k-split">${win("WHEN", "status becomes Confirmed", "sm")}</div>` },
+    { cap: "…DO that. Every time. Without being asked twice.", art: `<div class="k-split">${win("WHEN", "status → Confirmed", "sm")}${arrow()}${win("THEN", "book the courier", "sm pop")}</div>` },
+    { cap: "A real row triggers it — and the robot does exactly what the card says.", art: `<div class="k-split">${chip("✓ Confirmed")}${arrow()}${chip("🚚 booked", "good pop")}</div>` },
+  ],
+  "rule-anatomy": [
+    { cap: "Trigger: the event the rule watches.", art: `<div class="k-split">${win("TRIGGER", "invoice becomes Overdue", "sm pop")}</div>` },
+    { cap: "Check: an optional question — only act if this is true.", art: `<div class="k-split">${win("CHECK", "amount over $50?", "sm pop")}</div>` },
+    { cap: "Then / Else: what happens — and what happens otherwise.", art: `<div class="k-split">${win("THEN", "remind the customer", "sm pop")}${win("ELSE", "just tell me", "sm pop d2")}</div>` },
+  ],
+  // ---- Chapter 12: ASK ----
+  "ask-three": [
+    { cap: "FIND: three letters, any window or board.", art: `<div class="k-split"><span class="k-ask">⌘K · cour…</span>${chip("Courier Cash ↵", "pop")}</div>` },
+    { cap: "ASK: a question, answered from your own data.", art: `<div class="k-split"><span class="k-ask">revenue this month</span>${chip("📊 $1,240", "pop")}</div>` },
+    { cap: "ACT: a sentence becomes work — after you confirm.", art: `<div class="k-split"><span class="k-ask">spent 20 on boost</span>${chip("confirm card →", "pop")}</div>` },
+  ],
+  "ask-order": [
+    { cap: "Type: “create an order for Anika — 2 × Silk Scarf.”", art: `<div class="k-split"><span class="k-ask">create an order for Anika — 2 × Silk Scarf</span></div>` },
+    { cap: "One card previews the whole cascade — customer, order, draft invoice.", art: `<div class="k-split">${win("New order?", `Anika ✓ matched · 🧣 ×2 · $38 · draft invoice`, "pop")}</div>` },
+    { cap: "Everything is editable before confirm — quantities, prices, even “not them.”", art: `<div class="k-split">${chip("Using existing customer: Anika ✓")}${chip("Not them — create new", "sm")}</div>` },
+    { cap: "Confirm → it all happens. Undo → it all reverses, as one step.", art: `<div class="k-split">${chip("4 things created ✓", "good pop")}${chip("↩ Undo reverses all", "pop d2")}</div>` },
+  ],
+  // ---- Chapter 17/18: Settings & apps ----
+  "access-center": [
+    { cap: "Per module, choose: Everyone · Owners only · Chosen people.", art: `<div class="k-split">${win("Invoices", "Chosen people ▾", "sm")}${win("Campaigns", "Owners only ▾", "sm")}</div>` },
+    { cap: "Per person: No access · View · Manage.", art: `<div class="k-split">${chip("Sana: View", "pop")}${chip("Ben: No access", "pop d2")}</div>` },
+    { cap: "And the crown rule: what leaks nowhere — derived values show 🔒 Hidden.", art: `<div class="k-split">${chip("Total billed: 🔒 Hidden", "pop")}</div>` },
+  ],
+  "three-frames": [
+    { cap: "The same workspace on web, desktop, and phone.", art: `<div class="k-split">${chip("💻 web")}${chip("🖥️ desktop")}${chip("📱 phone")}</div>` },
+    { cap: "An edit on one flows to the others — usually before you look up.", art: `<div class="k-split">${chip("edited on phone")}${arrow()}${chip("desktop updated ✓", "good pop")}</div>` },
+  ],
+  "sync-conflict": [
+    { cap: "Two devices, offline, edit the same cell. It happens.", art: `<div class="k-split">${chip("💻 “$59”")}${chip("📱 “$54”")}</div>` },
+    { cap: "TaroGrid never silently picks a winner — it asks you.", art: `<div class="k-split">${win("You both edited this", `keep $59 · keep $54 — <b>pick one</b>`, "pop")}</div>` },
+    { cap: "The version you don't pick stays in history. Nothing is destroyed.", art: `<div class="k-split">${chip("other version kept in history ✓", "pop")}</div>` },
+  ],
   "advance-shield": [
     { cap: "A risky order? Ask for a small advance — about the delivery fee.", art: `<div class="k-split"><span class="k-light r"></span>${arrow()}${chip("💳 advance link · $5 · 24h", "pop")}</div>` },
     { cap: "Paid → the order confirms itself. Real skin in the game.", art: `<div class="k-split">${chip("paid ✓", "good pop")}${arrow()}${chip("Order: Confirmed", "good pop d2")}</div>` },

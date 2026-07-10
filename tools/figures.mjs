@@ -114,6 +114,23 @@ export const FIGURES = {
   </div>
   <p class="figcap">Every answer on the form has exactly one home on the board.</p>`,
 
+  "money-map": `
+  <div class="k-map">
+    <div class="k-split">
+      <span class="k-chip">📋 Order</span><span class="k-arrow"></span>
+      <span class="k-chip">🧾 Invoice</span><span class="k-arrow"></span>
+      <span class="k-chip">💳 Payment</span><span class="k-arrow"></span>
+      <span class="k-chip">🧿 Receipt (mints itself)</span>
+    </div>
+    <div class="k-mapnotes"><span class="k-mini">money in — each step creates the next; nothing re-typed</span></div>
+    <div class="k-split">
+      <span class="k-chip">📉 Expenses — money out</span>
+      <span class="k-chip">💵 Courier Cash — COD money coming home</span>
+    </div>
+    <div class="k-base">NET = money in − money out · live on the Command Center</div>
+  </div>
+  <p class="figcap">The Money map: four documents, one direction, one honest number at the end.</p>`,
+
   "order-anatomy": `
   <div class="k-map">
     <div class="k-split">${board(

@@ -1,30 +1,14 @@
 [
-  {
-    "slug": "start-here",
-    "dir": "00-start-here",
-    "title": "Start here",
-    "blurb": "Welcome, the three big ideas, and your first day.",
-    "order": 0
-  },
-  {
-    "slug": "core-ideas",
-    "dir": "01-core-ideas",
-    "title": "Core ideas",
-    "blurb": "Workspaces, boards, module windows, the lock, and the four categories.",
-    "order": 1
-  },
-  {
-    "slug": "selling-fields",
-    "dir": "05-fields-selling",
-    "title": "Selling fields",
-    "blurb": "The field types that make TaroGrid a selling machine: products, couriers, fraud, advances.",
-    "order": 5
-  },
-  {
-    "slug": "sell",
-    "dir": "06-sell",
-    "title": "Sell: shop & sales forms",
-    "blurb": "From product shelf to published shop link — and exactly where every order goes.",
-    "order": 6
-  }
+  { "slug": "start-here", "dir": "00-start-here", "title": "Start here", "blurb": "Welcome, the three big ideas, and your first day.", "order": 0 },
+  { "slug": "core-ideas", "dir": "01-core-ideas", "title": "Core ideas", "blurb": "Workspaces, boards, module windows, the lock, and the four categories.", "order": 1 },
+  { "slug": "boards", "dir": "02-boards", "title": "Boards & views", "blurb": "Create, shape, view, filter — and never lose anything.", "order": 2 },
+  { "slug": "selling-fields", "dir": "05-fields-selling", "title": "Selling fields", "blurb": "The field types that make TaroGrid a selling machine: products, couriers, fraud, advances.", "order": 5 },
+  { "slug": "sell", "dir": "06-sell", "title": "Sell: shop & sales forms", "blurb": "From product shelf to published shop link — and exactly where every order goes.", "order": 6 },
+  { "slug": "orders", "dir": "07-orders", "title": "Orders & delivery", "blurb": "Confirm, dispatch, track — and follow your cash-on-delivery money home.", "order": 7 },
+  { "slug": "money", "dir": "08-money", "title": "Money", "blurb": "Invoices, payments, expenses — and the one number that matters: net.", "order": 8 },
+  { "slug": "automations", "dir": "11-automations", "title": "Automations", "blurb": "Hire a robot for the boring parts — and trust it with the rules it shows you.", "order": 11 },
+  { "slug": "ask", "dir": "12-ask", "title": "ASK — the ⌘K bar", "blurb": "One bar to find anything, answer questions, and do work from a sentence.", "order": 12 },
+  { "slug": "settings", "dir": "17-settings", "title": "Settings & team", "blurb": "Members, roles, and who can see what — honestly.", "order": 17 },
+  { "slug": "apps", "dir": "18-apps", "title": "Apps, web & sync", "blurb": "Web, desktop, phone — one workspace, always in step.", "order": 18 },
+  { "slug": "fixit", "dir": "19-fix-it", "title": "Fix it + glossary", "blurb": "Symptom → cause → fix, and every term in one line.", "order": 19 }
 ]

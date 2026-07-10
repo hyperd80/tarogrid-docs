@@ -492,7 +492,7 @@ const bodyHtml = `
       <div class="brand-mark">T</div>
       <div><b>TaroGrid Help</b><small>Learn it. Run it. Trust it.</small></div>
     </div>
-    <span class="preview-chip">PREVIEW · 34 of ~132 articles</span>
+    <span class="preview-chip">PREVIEW · 71 of ~132 articles</span>
     <div id="nav"></div>
   </nav>
   <div class="main">
