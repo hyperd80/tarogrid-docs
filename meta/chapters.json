@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "start-here",
+    "dir": "00-start-here",
+    "title": "Start here",
+    "blurb": "Welcome, the three big ideas, and your first day.",
+    "order": 0
+  },
+  {
+    "slug": "core-ideas",
+    "dir": "01-core-ideas",
+    "title": "Core ideas",
+    "blurb": "Workspaces, boards, module windows, the lock, and the three categories.",
+    "order": 1
+  }
+]
