@@ -30,6 +30,17 @@ const FUTURE_TITLES = {
   "B-11": "Undo, Trash & restore",
   "T-04": "The Access Center",
   "Q-07": "“I edited a cell and it changed back”",
+  "S-15": "The life of an order",
+  "S-16": "Confirm & dispatch",
+  "S-17": "Connect a courier",
+  "S-19": "Courier Cash — where your COD money is",
+  "S-22": "Handling risky orders in real life",
+  "M-04": "Publish & share an invoice",
+  "M-08": "Get paid online: connect your payment gateway",
+  "AU-05": "The Recipe Gallery",
+  "AU-01": "Automations — hire a robot for the boring parts",
+  "Q-02": "“My order didn’t appear”",
+  "F-12": "Connect Boards — link rows across boards",
 };
 
 const esc = (s) =>
@@ -285,6 +296,16 @@ article ul,article ol{padding-left:24px;margin:12px 0}
 .k-si.gone{opacity:0;outline:1px dashed var(--border);outline-offset:-1px}
 .k-nb{width:20px;height:20px;border-radius:99px;background:var(--primary);color:#fff;font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .k-ask{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:7px 14px;font-size:11px;font-weight:600;color:var(--muted);box-shadow:var(--shadow)}
+.k-prod{width:88px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 6px;text-align:center;box-shadow:var(--shadow)}
+.k-prod .ph{font-size:22px;line-height:1.2}
+.k-prod .nm{font-size:8.5px;font-weight:700;margin-top:2px}
+.k-prod .pr{font-size:10px;color:var(--primary-ink);font-weight:800}
+.k-strike{text-decoration:line-through;opacity:.5;margin-right:4px;font-weight:600}
+.k-maprow{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:12px;justify-content:center;flex-wrap:wrap}
+.k-maplab{min-width:132px;text-align:right;font-weight:600}
+.k-mapcol{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:3px 10px;font-size:10.5px;font-weight:700;color:var(--primary-ink);white-space:nowrap}
+.k-light{width:13px;height:13px;border-radius:99px;display:inline-block;flex-shrink:0}
+.k-light.g{background:#41a874}.k-light.y{background:#daa832}.k-light.r{background:#d95a58}
 .k-count{display:inline-grid;font-weight:800;color:var(--primary-ink)}
 .k-count span{grid-area:1/1}
 .k-count .b{opacity:0}
@@ -370,7 +391,7 @@ function renderHome(){
   $("#page").innerHTML = '<div class="home-hero"><h1>TaroGrid Help Center</h1>'+
    '<p class="mission">Learn every feature, understand why it works the way it does, and run your whole business with confidence — even if this is your first business software.</p></div>'+
    '<div class="cards">'+cards+'</div>'+
-   '<footer class="pagefoot">R1 preview — the first two chapters of ~132 planned articles.</footer>';
+   '<footer class="pagefoot">Preview — 4 of 19 chapters (~132 planned articles). Chapters 2–4 arrive in the next waves.</footer>';
   document.title = "TaroGrid Help Center — R1 Preview";
 }
 
@@ -471,7 +492,7 @@ const bodyHtml = `
       <div class="brand-mark">T</div>
       <div><b>TaroGrid Help</b><small>Learn it. Run it. Trust it.</small></div>
     </div>
-    <span class="preview-chip">R1 PREVIEW · 14 of ~132 articles</span>
+    <span class="preview-chip">PREVIEW · 34 of ~132 articles</span>
     <div id="nav"></div>
   </nav>
   <div class="main">

@@ -9,7 +9,7 @@ C-01,Workspaces — one company one home,1 Core ideas,T1,Live,P0,Published (R1 p
 C-02,Boards — your company's databases,1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-03,Module Windows — intelligent screens on top of boards,1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-04,Built-in system boards — and the lock,1 Core ideas,T1,Live,P0,Published (R1 preview)
-C-05,The three business categories: Money · People · Work,1 Core ideas,T1,Live,P0,Published (R1 preview)
+C-05,The four business categories: Money · People · Work · Outreach,1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-06,"Groups, items, and cells — the anatomy of a board",1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-07,Who sees what? Permissions in one page,1 Core ideas,T1,Live,P0,Published (R1 preview)
 C-08,Everything is connected: the map of TaroGrid,1 Core ideas,T1,Live,P0,Published (R1 preview)
@@ -43,26 +43,26 @@ F-15,Dependency,4 Fields power,T3,Live,P1,Planned
 F-16,When formulas meet automations,4 Fields power,T1,Live,P1,Planned
 F-17,Rollup/Mirror + automations,4 Fields power,T1,Live,P1,Planned
 F-18,Formula reference,4 Fields power,T3,Live,P1,Planned
-F-19,Product Catalog field,5 Fields selling,T1,Live,P0,Planned
-F-20,Delivery Partner field,5 Fields selling,T1,Live,P0,Planned
-F-21,Fraud Check field,5 Fields selling,T1,Live,P0,Planned
-F-22,How the Selling fields work together,5 Fields selling,T1,Live,P0,Planned
-F-23,Selling-field automation recipes,5 Fields selling,T3,Live,P0,Planned
-F-24,Advance payment requests,5 Fields selling,T1,Live,P0,Planned
-S-01,How selling works in TaroGrid (the Golden Path),6 Sell,T1,Live,P0,Planned
-S-02,The Product Catalog window,6 Sell,T1,Live,P0,Planned
-S-03,Variants sale prices & stock tracking,6 Sell,T2,Live,P0,Planned
-S-04,Combos — sell bundles,6 Sell,T2,Live,P0,Planned
-S-05,Build a Sales Form,6 Sell,T2,Live,P0,Planned
-S-06,Your shop link — publish short links & sharing,6 Sell,T2,Live,P0,Planned
-S-07,Shop branding — one look everywhere,6 Sell,T2,Live,P0,Planned
-S-08,Where does an order GO?,6 Sell,T1,Live,P0,Planned
-S-09,COD payment options & what the customer sees,6 Sell,T1,Live,P0,Planned
-S-10,Test your shop end-to-end,6 Sell,T2,Live,P0,Planned
-S-11,Edit products safely after launch,6 Sell,T2,Live,P0,Planned
-S-12,Sales Form vs classic intake Forms,6 Sell,T1,Live,P0,Planned
-S-13,Shop FAQ & customer-side troubleshooting,6 Sell,T4,Live,P0,Planned
-S-14,Your own domain for your shop,6 Sell,T2,Coming soon · Paid,P0,Planned
+F-19,Product Catalog field,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-20,Delivery Partner field,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-21,Fraud Check field,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-22,How the Selling fields work together,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-23,Selling-field automation recipes,5 Fields selling,T3,Live,P0,Published (R2 preview)
+F-24,Advance payment requests,5 Fields selling,T1,Live,P0,Published (R2 preview)
+S-01,How selling works in TaroGrid (the Golden Path),6 Sell,T1,Live,P0,Published (R2 preview)
+S-02,The Product Catalog window,6 Sell,T1,Live,P0,Published (R2 preview)
+S-03,Variants sale prices & stock tracking,6 Sell,T2,Live,P0,Published (R2 preview)
+S-04,Combos — sell bundles,6 Sell,T2,Live,P0,Published (R2 preview)
+S-05,Build a Sales Form,6 Sell,T2,Live,P0,Published (R2 preview)
+S-06,Your shop link — publish short links & sharing,6 Sell,T2,Live,P0,Published (R2 preview)
+S-07,Shop branding — one look everywhere,6 Sell,T2,Live,P0,Published (R2 preview)
+S-08,Where does an order GO?,6 Sell,T1,Live,P0,Published (R2 preview)
+S-09,COD payment options & what the customer sees,6 Sell,T1,Live,P0,Published (R2 preview)
+S-10,Test your shop end-to-end,6 Sell,T2,Live,P0,Published (R2 preview)
+S-11,Edit products safely after launch,6 Sell,T2,Live,P0,Published (R2 preview)
+S-12,Sales Form vs classic intake Forms,6 Sell,T1,Live,P0,Published (R2 preview)
+S-13,Shop FAQ & customer-side troubleshooting,6 Sell,T4,Live,P0,Published (R2 preview)
+S-14,Your own domain for your shop,6 Sell,T2,Coming soon · Paid,P0,Published (R2 preview)
 S-15,The life of an order,7 Orders & delivery,T1,Live,P0,Planned
 S-16,Confirm & dispatch,7 Orders & delivery,T2,Live,P0,Planned
 S-17,Connect a courier,7 Orders & delivery,T2,Live,P0,Planned

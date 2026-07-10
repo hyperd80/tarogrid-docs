@@ -88,4 +88,45 @@ export const FIGURES = {
     </div>
   </div>
   <p class="figcap">Every arrow is a chore you no longer do — and an error you can no longer make.</p>`,
+
+  "golden-path": `
+  <div class="k-map">
+    <div class="k-split">
+      <span class="k-chip">🛍️ CATALOG<br><span class="k-mini">photo · price · stock · bundles</span></span>
+      <span class="k-arrow"></span>
+      <span class="k-chip">🔗 SALES FORM / SHOP LINK<br><span class="k-mini">a public page — no app, no account</span></span>
+      <span class="k-arrow"></span>
+      <span class="k-chip">📋 ORDERS BOARD<br><span class="k-mini">one row per order, written by the form</span></span>
+    </div>
+    <div class="k-mapnotes"><span class="k-mini">…then, from the row: fraud check runs · stock counts down · the money side updates · automations take over</span></div>
+  </div>
+  <p class="figcap">The Golden Path — every article in this chapter is one stop on this road.</p>`,
+
+  "form-mapping": `
+  <div class="k-map">
+    <div class="k-maprow"><span class="k-maplab">Their name</span><span class="k-arrow"></span><span class="k-mapcol">Customer — Text</span></div>
+    <div class="k-maprow"><span class="k-maplab">Their phone</span><span class="k-arrow"></span><span class="k-mapcol">Phone — the identity key</span></div>
+    <div class="k-maprow"><span class="k-maplab">Their address</span><span class="k-arrow"></span><span class="k-mapcol">Address — Long text</span></div>
+    <div class="k-maprow"><span class="k-maplab">Products they picked</span><span class="k-arrow"></span><span class="k-mapcol">Product Catalog field</span></div>
+    <div class="k-maprow"><span class="k-maplab">Quantity & prices</span><span class="k-arrow"></span><span class="k-mapcol">Numbers + the order Total</span></div>
+    <div class="k-maprow"><span class="k-maplab">Payment choice</span><span class="k-arrow"></span><span class="k-mapcol">COD / advance status</span></div>
+    <div class="k-base">Added by TaroGrid, without being asked: 🕒 arrival time · 🟢 fraud check · Status: <b>Pending</b></div>
+  </div>
+  <p class="figcap">Every answer on the form has exactly one home on the board.</p>`,
+
+  "order-anatomy": `
+  <div class="k-map">
+    <div class="k-split">${board(
+      row(`<span class="k-cellv">Anika</span>` + `<span class="k-chip sm">🌹 Rose Dress ×1</span>` + `<span class="k-cellv">$59</span>` + `<span class="k-light g"></span>` + `<span class="k-chip sm">🚚 #TRK-88412</span>` + `<span class="k-chip sm">COD</span>`, "hl-row"),
+      "ONE ORDER ROW"
+    )}</div>
+    <div class="k-split">
+      <span class="k-mini"><b>product chip</b> — real catalog item</span>
+      <span class="k-mini"><b>total</b> — priced from the Catalog</span>
+      <span class="k-mini"><b>fraud light</b> — risk before you ship</span>
+      <span class="k-mini"><b>courier cell</b> — booked & tracked</span>
+      <span class="k-mini"><b>COD</b> — cash tracked to payout</span>
+    </div>
+  </div>
+  <p class="figcap">Five selling superpowers, one row. Each has its own article in this chapter.</p>`,
 };

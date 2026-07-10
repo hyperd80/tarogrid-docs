@@ -12,5 +12,19 @@
     "title": "Core ideas",
     "blurb": "Workspaces, boards, module windows, the lock, and the four categories.",
     "order": 1
+  },
+  {
+    "slug": "selling-fields",
+    "dir": "05-fields-selling",
+    "title": "Selling fields",
+    "blurb": "The field types that make TaroGrid a selling machine: products, couriers, fraud, advances.",
+    "order": 5
+  },
+  {
+    "slug": "sell",
+    "dir": "06-sell",
+    "title": "Sell: shop & sales forms",
+    "blurb": "From product shelf to published shop link — and exactly where every order goes.",
+    "order": 6
   }
 ]
