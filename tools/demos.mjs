@@ -215,7 +215,7 @@ export const DEMOS = {
     { cap: "“6 orders reconciled · 1 line needs review.” Honest math, every time.", art: `<div class="k-split">${chip("6 reconciled ✓", "good pop")}${chip("1 needs review", "pop d2")}</div>` },
   ],
   "manual-remit": [
-    { cap: "Any courier, any payout: log what they paid you.", art: `<div class="k-split">${win("Log payout", `courier · date · <b>$285</b>`)}</div>` },
+    { cap: "Any courier, any payout: log what they paid you.", art: `<div class="k-split">${win("Log a remittance", `courier · date · <b>$285</b>`)}</div>` },
     { cap: "Matched orders flip to Reconciled together.", art: `<div class="k-split">${chip("5 orders → Reconciled ✓", "good pop")}</div>` },
   ],
   "returns-restock": [

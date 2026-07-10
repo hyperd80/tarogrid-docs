@@ -37,9 +37,9 @@ related:
 - **Variant** — one product's options: size, color — each with honest stock. [S-03](#/S-03)
 - **Combo / bundle** — products sold as a set at its own price; every member's stock draws down. [S-04](#/S-04)
 - **COD (cash on delivery)** — the customer pays the courier at the door; the cash comes home via Courier Cash. [S-09](#/S-09)
-- **Fraud Check** — the risk light on every order: green, yellow, red — a signal, not a verdict. [F-21](#/F-21)
+- **Fraud detector** — the risk light on every order: green, yellow, red — a signal, not a verdict. [F-21](#/F-21)
 - **Advance payment** — a small upfront amount that filters fake orders and confirms real ones. [F-24](#/F-24)
-- **Delivery Partner field** — book and track the courier from the order row. [F-20](#/F-20)
+- **Delivery field** — book and track the courier from the order row. [F-20](#/F-20)
 - **Courier Cash** — the window that watches COD money until it's truly yours. [S-19](#/S-19)
 - **Reconcile** — match a courier's payout to your orders, line by line. [S-19](#/S-19)
 :::

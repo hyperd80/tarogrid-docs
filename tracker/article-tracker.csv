@@ -44,8 +44,8 @@ F-16,When formulas meet automations,4 Fields power,T1,Live,P1,Planned
 F-17,Rollup/Mirror + automations,4 Fields power,T1,Live,P1,Planned
 F-18,Formula reference,4 Fields power,T3,Live,P1,Planned
 F-19,Product Catalog field,5 Fields selling,T1,Live,P0,Published (R2 preview)
-F-20,Delivery Partner field,5 Fields selling,T1,Live,P0,Published (R2 preview)
-F-21,Fraud Check field,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-20,Delivery field,5 Fields selling,T1,Live,P0,Published (R2 preview)
+F-21,Fraud detector field,5 Fields selling,T1,Live,P0,Published (R2 preview)
 F-22,How the Selling fields work together,5 Fields selling,T1,Live,P0,Published (R2 preview)
 F-23,Selling-field automation recipes,5 Fields selling,T3,Live,P0,Published (R2 preview)
 F-24,Advance payment requests,5 Fields selling,T1,Live,P0,Published (R2 preview)

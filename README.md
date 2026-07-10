@@ -37,6 +37,13 @@ node tools/build.mjs
 
 Outputs: `site/index.html` (self-contained reader — open it anywhere), `site/articles.json` (the future in-app help bundle), `site/artifact.html` (hosted-preview variant).
 
+## Go-live runbook (owner steps, in order)
+
+1. Flip this repo to **public** (Settings → General → Danger zone) — GitHub Pages is free on public repos.
+2. Enable Pages: Settings → Pages → Source: **GitHub Actions**. The included workflow builds and deploys `site/` on every push.
+3. Add the custom domain in Settings → Pages: `help.tarogrid.com`, then at the domain provider add a CNAME record pointing `help` → `<owner>.github.io`.
+4. Wait for the green check (HTTPS auto-provisions), open https://help.tarogrid.com, and share it.
+
 ## Rules that keep these docs honest
 
 - Nothing unshipped is documented as shipped — roadmap items are 🔜 stubs.

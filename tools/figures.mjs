@@ -110,7 +110,7 @@ export const FIGURES = {
     <div class="k-maprow"><span class="k-maplab">Products they picked</span><span class="k-arrow"></span><span class="k-mapcol">Product Catalog field</span></div>
     <div class="k-maprow"><span class="k-maplab">Quantity & prices</span><span class="k-arrow"></span><span class="k-mapcol">Numbers + the order Total</span></div>
     <div class="k-maprow"><span class="k-maplab">Payment choice</span><span class="k-arrow"></span><span class="k-mapcol">COD / advance status</span></div>
-    <div class="k-base">Added by TaroGrid, without being asked: 🕒 arrival time · 🟢 fraud check · Status: <b>Pending</b></div>
+    <div class="k-base">Added by TaroGrid, without being asked: 🕒 arrival time · 🟢 fraud check · Status: your first stage (<b>Pending</b> in Maya's setup)</div>
   </div>
   <p class="figcap">Every answer on the form has exactly one home on the board.</p>`,
 
@@ -127,7 +127,7 @@ export const FIGURES = {
       <span class="k-chip">📉 Expenses — money out</span>
       <span class="k-chip">💵 Courier Cash — COD money coming home</span>
     </div>
-    <div class="k-base">NET = money in − money out · live on the Command Center</div>
+    <div class="k-base">NET = money in − money out · live on the Cockpit</div>
   </div>
   <p class="figcap">The Money map: four documents, one direction, one honest number at the end.</p>`,
 

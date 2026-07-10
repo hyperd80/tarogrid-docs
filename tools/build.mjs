@@ -133,9 +133,12 @@ for (const ch of chapters) {
 const byId = Object.fromEntries(articles.map((a) => [a.id, a]));
 
 // ---- owner-rule lint (build fails on violation) ----
+const REGIONAL_WORDS = /\b(taka|meem|shanta|karigor|pathao|steadfast|redx|dhaka|mirpur|chattogram|bkash|khata|banglish|tk\.)\b/i;
 for (const a of articles) {
   if (/<table/i.test(a.html)) throw new Error(`${a.id}: rendered table — owner rule: no tables; use :::cards or a figure`);
   if (/[ঀ-৿৳]/.test(a.html) || /[ঀ-৿৳]/.test(JSON.stringify(a))) throw new Error(`${a.id}: Bangla text or ৳ — owner rule: global-first docs`);
+  const regional = a.html.match(REGIONAL_WORDS) || JSON.stringify(a.keywords || []).match(REGIONAL_WORDS);
+  if (regional) throw new Error(`${a.id}: regional word "${regional[0]}" — owner rule: global-first docs (see CAST.md)`);
   if (/<pre class="diagram"/.test(a.html)) throw new Error(`${a.id}: ASCII diagram — owner rule: designed figures only`);
   for (const [k, v] of Object.entries(a.related || {})) {
     if (!byId[v] && !FUTURE_TITLES[v]) throw new Error(`${a.id} related.${k} → unknown id ${v}`);
@@ -447,23 +450,46 @@ for (const [k, vals] of Object.entries(DATA.synonyms)) {
 }
 function expand(q){
   const terms = q.toLowerCase().split(/\\s+/).filter(Boolean);
-  const out = new Set(terms);
-  for (const t of terms) { for (const [key, group] of Object.entries(SYN)) { if (key.includes(t) || t.includes(key)) group.forEach(g => out.add(g)); } }
-  return [...out];
+  const extra = new Set();
+  for (const t of terms) { for (const [key, group] of Object.entries(SYN)) { if (key.includes(t) || t.includes(key)) group.forEach(g => { if (!terms.includes(g)) extra.add(g); }); } }
+  return { terms, extra: [...extra] };
 }
 function search(q){
-  if(!q.trim()) return [];
-  const terms = expand(q);
-  return Object.values(DATA.articles).map(a => {
+  const phrase = q.trim().toLowerCase();
+  if(!phrase) return [];
+  const { terms, extra } = expand(phrase);
+  const results = Object.values(DATA.articles).map(a => {
+    const title = a.title.toLowerCase(), promise = a.promise.toLowerCase();
+    const kws = a.keywords.map(k => String(k).toLowerCase());
     let score = 0;
+    // The user's exact phrase is the strongest signal.
+    if (title.includes(phrase)) score += 30;
+    if (kws.some(k => k.includes(phrase))) score += 22;
+    // Their own words beat synonym expansions.
     for (const t of terms){
-      if (a.title.toLowerCase().includes(t)) score += 12;
-      if (a.keywords.some(k => String(k).toLowerCase().includes(t))) score += 8;
-      if (a.promise.toLowerCase().includes(t)) score += 4;
+      if (title.includes(t)) score += 12;
+      if (kws.some(k => k.includes(t))) score += 9;
+      if (promise.includes(t)) score += 3;
       if (a.text.includes(t)) score += 2;
+    }
+    for (const t of extra){
+      if (title.includes(t)) score += 4;
+      if (kws.some(k => k.includes(t))) score += 3;
+      if (a.text.includes(t)) score += 1;
     }
     return {a, score};
   }).filter(r => r.score > 0).sort((x,y) => y.score - x.score).slice(0,7);
+  if (!results.length) logMiss(phrase);
+  return results;
+}
+// Honest miss log: stored on this device, reviewed when a collection endpoint
+// exists — misses teach us what to write next.
+function logMiss(q){
+  try {
+    const log = JSON.parse(localStorage.getItem("tg-docs-miss") || "[]");
+    if (log[log.length-1] && q.startsWith(log[log.length-1])) log.pop(); // keep final form of a growing query
+    log.push(q); localStorage.setItem("tg-docs-miss", JSON.stringify(log.slice(-200)));
+  } catch {}
 }
 $("#q").addEventListener("input", e => {
   const rs = search(e.target.value);
