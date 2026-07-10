@@ -29,7 +29,7 @@ export const DEMOS = {
     { cap: "Courier Cash tracks the $59 until it's truly yours.", art: `<div class="k-split">${win("Courier Cash", `To collect $59 ${arrow()} ${chip("Paid to you ✓", "good pop d2")}`)}</div>` },
   ],
   "three-ideas": [
-    { cap: "This is your company — the Workspace. Everything lives inside it.", art: `<div class="k-frame"><span class="k-flabel">YOUR COMPANY</span><div class="k-split">${zone("MONEY", "money")}${zone("PEOPLE", "people")}${zone("WORK", "work")}</div></div>` },
+    { cap: "This is your company — the Workspace. Everything lives inside it.", art: `<div class="k-frame"><span class="k-flabel">YOUR COMPANY</span><div class="k-split">${zone("MONEY", "money")}${zone("PEOPLE", "people")}${zone("WORK", "work")}${zone("OUTREACH", "outreach")}</div></div>` },
     { cap: "Your company's information lives on boards — rows and columns.", art: `<div class="k-split">${board(r3() + r3("hl-row") + r3(), "A BOARD")}</div>` },
     { cap: "Windows are smart screens that work on top of boards.", art: `<div class="k-stack">${win("Invoice Center", "Anika · $59 · Paid ✓", "over")}${board(r3() + r3(), "INVOICE BOARD")}</div>` },
     { cap: "Lift any window — a real board is always underneath. Nothing is hidden.", art: `<div class="k-stack">${win("Invoice Center", "Anika · $59 · Paid ✓", "over lift")}${board(r3() + r3("hl-row"), "INVOICE BOARD")}</div>` },
@@ -76,11 +76,12 @@ export const DEMOS = {
     { cap: "Unlock to add your own column — notes, tags, anything.", art: `<div class="k-split">${board(row(cell() + cell() + `<span class="k-cellv pop">Notes ✎</span>`) + r3(), "+ YOUR COLUMN")}</div>` },
     { cap: "The module refreshes its columns — and never touches yours.", art: `<div class="k-split">${chip("module columns refreshed ↻")}${chip("your column untouched ✓", "good pop d2")}</div>` },
   ],
-  "three-zones": [
-    { cap: "Every workspace organizes itself into three worlds.", art: `<div class="k-split">${zone("MONEY", "money")}${zone("PEOPLE", "people")}${zone("WORK", "work")}</div>` },
+  "four-zones": [
+    { cap: "Every workspace organizes itself into four worlds.", art: `<div class="k-split">${zone("MONEY", "money")}${zone("PEOPLE", "people")}${zone("WORK", "work")}${zone("OUTREACH", "outreach")}</div>` },
     { cap: "Money in and out: invoices, expenses, courier cash, the net.", art: `<div class="k-split">${zone("MONEY", "money big")}${chip("invoice $59", "pop")}${chip("expenses", "pop d2")}</div>` },
     { cap: "People: customers and suppliers (WITH) — and your team (AS).", art: `<div class="k-split">${zone("PEOPLE", "people big")}${chip("Anika · customer", "pop")}${chip("Sana · team", "pop d2")}</div>` },
     { cap: "Work: your blank canvas — your own boards, your own rules.", art: `<div class="k-split">${zone("WORK", "work big")}${chip("any board you invent", "pop")}</div>` },
+    { cap: "Outreach: campaigns and follow-ups — and who opened, clicked, replied.", art: `<div class="k-split">${zone("OUTREACH", "outreach big")}${chip("3-email campaign", "pop")}${chip("Anika replied ✓", "good pop d2")}</div>` },
   ],
   "board-zoom": [
     { cap: "A board — the whole ledger.", art: `<div class="k-split">${board(`<div class="k-gband">NEW</div>` + r3() + r3() + `<div class="k-gband g2">SHIPPED</div>` + r3())}</div>` },
@@ -97,6 +98,6 @@ export const DEMOS = {
     { cap: "Products flow from your Catalog to your shop link to your Orders Board.", art: `<div class="k-split">${chip("🛍️ Catalog")}${arrow()}${chip("🔗 Shop link")}${arrow()}${board(r3("hl-row"), "ORDERS")}</div>` },
     { cap: "From the order row: fraud checked, stock counted, courier booked.", art: `<div class="k-split">${chip("🟢 safe", "pop")}${chip(`stock <span class="k-count"><span class="a">12</span><span class="b">11</span></span>`, "pop d2")}${chip("🚚 booked", "pop d3")}</div>` },
     { cap: "Delivered cash flows into Courier Cash, then into your money picture.", art: `<div class="k-split">${chip("🚚 Delivered")}${arrow()}${win("Courier Cash", "to collect → yours ✓")}${arrow()}${zone("MONEY", "money")}</div>` },
-    { cap: "People stays beside everything; Work is whatever you want it to be.", art: `<div class="k-split">${zone("PEOPLE", "people")}${zone("WORK", "work")}${chip("one customer = one row", "pop")}</div>` },
+    { cap: "People beside everything, Outreach reaching out, Work shaped your way.", art: `<div class="k-split">${zone("PEOPLE", "people")}${zone("OUTREACH", "outreach")}${zone("WORK", "work")}${chip("one customer = one row", "pop")}</div>` },
   ],
 };

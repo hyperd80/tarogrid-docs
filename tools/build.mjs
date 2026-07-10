@@ -265,6 +265,7 @@ article ul,article ol{padding-left:24px;margin:12px 0}
 .k-zone.money{border-color:var(--why-b);background:var(--why)}
 .k-zone.people{border-color:var(--ex-b);background:var(--ex)}
 .k-zone.work{border-color:var(--tip-b);background:var(--tip)}
+.k-zone.outreach{border-color:var(--note-b);background:var(--note)}
 .k-zone.big{padding:14px 18px;font-size:12px}
 .k-zone.col{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
 .k-mini{font-size:9px;font-weight:500;color:var(--muted);letter-spacing:0}

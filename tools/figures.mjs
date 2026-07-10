@@ -17,6 +17,7 @@ export const FIGURES = {
       ${zone("MONEY", "money", ["invoices · receipts", "expenses · orders", "courier cash"])}
       ${zone("PEOPLE", "people", ["customers · suppliers", "your team"])}
       ${zone("WORK", "work", ["your own boards", "projects · workflows"])}
+      ${zone("OUTREACH", "outreach", ["campaigns", "follow-up sequences"])}
     </div>
     <div class="k-base">Underneath it all: <b>BOARDS</b> — the company's databases</div>
   </div>
@@ -82,6 +83,7 @@ export const FIGURES = {
     <div class="k-split">${zone("MONEY", "money", ["invoices · receipts · expenses", "→ NET: did I make money?"])}</div>
     <div class="k-split">
       ${zone("PEOPLE", "people", ["one customer = one row,", "matched across everything"])}
+      ${zone("OUTREACH", "outreach", ["campaigns & follow-ups,", "reading People, reporting back"])}
       ${zone("WORK", "work", ["your own boards,", "connected when you want"])}
     </div>
   </div>
