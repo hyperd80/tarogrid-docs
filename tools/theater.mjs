@@ -75,7 +75,7 @@ export const THEATER_CSS = `
 .t-snav .c.on{background:var(--soft);outline:1px solid var(--border)}
 .t-main{padding:10px 12px 12px;min-width:0;position:relative}
 .t-main.center{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
-.t-crumb{font-size:10.5px;color:var(--muted);margin-bottom:8px}
+.t-crumb{font-size:11.5px;color:var(--muted);margin-bottom:8px}
 .t-crumb b{color:var(--ink);font-weight:700}
 @media(max-width:480px){.t-snav{display:none}.t-app{grid-template-columns:1fr}.t-askpill{display:none}}
 /* ---- the ACTUAL cursor (opaque OS pointer; motion-only entry/exit) ---- */
@@ -84,15 +84,24 @@ export const THEATER_CSS = `
 .t-cursor.tick .p{transform:scale(.84)}
 .t-cursor svg{display:block;filter:drop-shadow(0 1.5px 2px rgba(0,0,0,.35))}
 .pressed{transform:scale(.94)!important}
+/* ---- loop-boot: seeded rows cascade in at every (re)start ---- */
+.t-boot .t-tbl tbody tr{animation:t-rowin .32s var(--t-ease) both}
+.t-boot .t-tbl tbody tr:nth-child(2){animation-delay:.06s}
+.t-boot .t-tbl tbody tr:nth-child(3){animation-delay:.12s}
+.t-boot .t-tbl tbody tr:nth-child(4){animation-delay:.18s}
+.t-boot .t-tbl tbody tr:nth-child(5){animation-delay:.24s}
+.t-boot .t-tbl tbody tr:nth-child(6){animation-delay:.30s}
+.t-boot .t-tbl tbody tr:nth-child(n+7){animation-delay:.36s}
+@keyframes t-rowin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 /* ---- entrance grammar ---- */
 .t-in{opacity:0;transform:translateY(5px) scale(.98);transition:opacity .3s var(--t-ease),transform .34s var(--t-ease)}
 .t-in.in{opacity:1;transform:none}
 .t-dim{opacity:.45;transition:opacity .35s var(--t-ease)}
 .t-undim{opacity:1}
 /* ---- tables (real board rows) ---- */
-.t-tbl{width:100%;border-collapse:collapse;font-size:11px}
-.t-tbl th{font-size:8.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;padding:3px 7px;border-bottom:1px solid var(--border);white-space:nowrap}
-.t-tbl td{padding:0 7px;height:29px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap}
+.t-tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+.t-tbl th{font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:4px 8px;border-bottom:1px solid var(--border);white-space:nowrap}
+.t-tbl td{padding:0 8px;height:32px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap}
 .t-tbl td.r{text-align:right;font-weight:700}
 .t-tbl tr{transition:background-color .25s var(--t-ease),opacity .3s var(--t-ease)}
 .t-tbl tr.dim{opacity:.45}
@@ -107,7 +116,7 @@ export const THEATER_CSS = `
 .t-pul{animation:t-pul .5s var(--t-ease) 1}
 @keyframes t-pul{0%{transform:scale(1)}40%{transform:scale(1.09)}100%{transform:scale(1)}}
 /* ---- chips / lights ---- */
-.t-chip{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:2px 8px;font-size:9.5px;font-weight:700;background:var(--soft);color:var(--muted);border:1px solid var(--border);transition:opacity .14s var(--t-ease),transform .14s var(--t-ease);white-space:nowrap}
+.t-chip{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:2.5px 9px;font-size:10.5px;font-weight:700;background:var(--soft);color:var(--muted);border:1px solid var(--border);transition:opacity .14s var(--t-ease),transform .14s var(--t-ease);white-space:nowrap}
 .t-chip.swap{opacity:0;transform:translateY(-2px)}
 .t-chip[data-s=acc]{background:var(--soft);color:var(--primary-ink);border-color:transparent}
 .t-chip[data-s=ok]{background:var(--t-ok-bg);color:var(--t-ok);border-color:transparent}
@@ -118,28 +127,28 @@ export const THEATER_CSS = `
 /* ---- KPIs ---- */
 .t-kpis{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:8px}
 .t-kpis.two{grid-template-columns:repeat(2,1fr)}
-.t-kpi{padding:5px 9px;border-right:1px solid var(--border);min-width:0}
+.t-kpi{padding:6px 10px;border-right:1px solid var(--border);min-width:0}
 .t-kpi:last-child{border-right:0}
-.t-kpi .k{font-size:8.5px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.t-kpi .v{font-size:13px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.t-kpi .k{font-size:9.5px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-kpi .v{font-size:14.5px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 /* ---- cards (recipe / module window) ---- */
 .t-card{border:1px solid var(--border);border-radius:10px;background:var(--card);padding:9px 11px;transition:background-color .3s var(--t-ease),box-shadow .3s var(--t-ease)}
 .t-card.fresh{background:var(--soft);box-shadow:inset 0 0 0 1px var(--border)}
-.t-card .cn{font-size:11.5px;font-weight:700}
-.t-card .cs{font-size:9.5px;color:var(--muted);margin-top:1px}
-.t-card .cr{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:7px}
+.t-card .cn{font-size:12.5px;font-weight:700}
+.t-card .cs{font-size:10.5px;color:var(--muted);margin-top:1px}
+.t-card .cr{font-size:11.5px;color:var(--muted);line-height:1.5;margin-top:7px}
 .t-card .cr b{color:var(--ink)}
 .t-crow{display:flex;align-items:center;gap:8px}
 .t-win{background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);min-width:150px;max-width:100%}
-.t-win .wh{padding:6px 10px;border-bottom:1px solid var(--border);font-size:9.5px;font-weight:800;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
-.t-win .wb{padding:8px 10px;font-size:10.5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;line-height:1.5}
+.t-win .wh{padding:7px 11px;border-bottom:1px solid var(--border);font-size:10.5px;font-weight:800;letter-spacing:.04em;display:flex;align-items:center;gap:6px}
+.t-win .wb{padding:9px 11px;font-size:11.5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;line-height:1.5}
 /* ---- toggle ---- */
 .t-tgl{flex:none;width:34px;height:20px;border-radius:10px;background:var(--border);position:relative;transition:background-color .25s var(--t-ease),transform .12s var(--t-ease);display:inline-block;cursor:default}
 .t-tgl i{position:absolute;top:2.5px;left:2.5px;width:15px;height:15px;border-radius:50%;background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .25s var(--t-ease);display:block}
 .t-tgl.on{background:var(--primary)}
 .t-tgl.on i{transform:translateX(14px)}
 /* ---- buttons ---- */
-.t-btn{display:inline-flex;align-items:center;gap:5px;background:var(--primary);color:#fff;border-radius:7px;padding:5px 12px;font-size:10.5px;font-weight:700;transition:transform .12s var(--t-ease),opacity .3s var(--t-ease);box-shadow:0 1px 2px rgba(0,0,0,.12);white-space:nowrap}
+.t-btn{display:inline-flex;align-items:center;gap:5px;background:var(--primary);color:#fff;border-radius:7px;padding:6px 13px;font-size:11px;font-weight:700;transition:transform .12s var(--t-ease),opacity .3s var(--t-ease);box-shadow:0 1px 2px rgba(0,0,0,.12);white-space:nowrap}
 .t-btn.o{background:var(--card);color:var(--ink);border:1px solid var(--border);box-shadow:none}
 /* ---- ASK bar ---- */
 .t-ask{display:flex;align-items:center;gap:7px;border:1px solid var(--border);border-radius:9px;background:var(--card);box-shadow:var(--shadow);padding:7px 11px;font-size:11px;min-width:0;max-width:100%}
@@ -149,7 +158,7 @@ export const THEATER_CSS = `
 .t-ask .tx.typing:after{content:"";display:inline-block;width:1.5px;height:11px;background:var(--primary);margin-left:1px;vertical-align:-1.5px;animation:t-caret .8s step-end infinite}
 @keyframes t-caret{50%{opacity:0}}
 /* ---- phone shell (customer side / mobile) ---- */
-.t-phone{width:148px;background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;flex:none;position:relative}
+.t-phone{width:158px;background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;flex:none;position:relative}
 .t-phone .ph-n{height:14px;display:grid;place-items:center}
 .t-phone .ph-n i{width:40px;height:4px;border-radius:2px;background:var(--border);display:block}
 .t-phone .ph-b{padding:6px 9px 11px;position:relative}
@@ -191,33 +200,33 @@ export const THEATER_CSS = `
 .t-node .nb{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);display:grid;place-items:center;color:transparent;transition:border-color .3s var(--t-ease),background-color .3s var(--t-ease),color .3s var(--t-ease);z-index:1}
 .t-node.done .nb{border-color:var(--primary);background:var(--soft);color:var(--primary-ink)}
 .t-node.done.ok .nb{border-color:var(--t-ok);background:var(--t-ok-bg);color:var(--t-ok)}
-.t-node .nl{font-size:7.5px;font-weight:700;color:var(--muted);transition:color .3s var(--t-ease);white-space:nowrap}
+.t-node .nl{font-size:8.5px;font-weight:700;color:var(--muted);transition:color .3s var(--t-ease);white-space:nowrap}
 .t-node.done .nl{color:var(--ink)}
 .t-node .trk{position:absolute;top:8px;right:50%;width:100%;height:1.5px;background:var(--border);z-index:0}
 .t-node:first-child .trk{display:none}
 .t-node .trk i{position:absolute;inset:0;background:var(--primary);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--t-io);display:block}
 .t-node.wired .trk i{transform:scaleX(1)}
 /* ---- toast ---- */
-.t-toast{position:absolute;top:8px;right:8px;z-index:7;display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:6px 10px;font-size:9.5px;font-weight:500;box-shadow:var(--shadow);opacity:0;transform:translateY(-6px);transition:opacity .22s var(--t-ease),transform .22s var(--t-ease);pointer-events:none;max-width:78%}
+.t-toast{position:absolute;top:8px;right:8px;z-index:7;display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 11px;font-size:10.5px;font-weight:500;box-shadow:var(--shadow);opacity:0;transform:translateY(-6px);transition:opacity .22s var(--t-ease),transform .22s var(--t-ease);pointer-events:none;max-width:78%}
 .t-toast.in{opacity:1;transform:none}
 .t-toast b{font-weight:700}
 .t-toast .tk{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--t-ok-bg);color:var(--t-ok);flex:none;font-size:8px}
 /* ---- checklist ---- */
-.t-task{display:flex;gap:7px;align-items:center;font-size:10.5px;padding:3px 0}
+.t-task{display:flex;gap:7px;align-items:center;font-size:11.5px;padding:3px 0}
 .t-box{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:8px;color:#fff;flex:none;transition:background-color .25s var(--t-ease),border-color .25s var(--t-ease)}
 .t-box.done{background:var(--primary);border-color:var(--primary)}
 /* ---- product tile (catalog cards) ---- */
-.t-prod{width:76px;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-align:center;box-shadow:var(--shadow);flex:none}
-.t-prod .pi{height:44px}.t-prod .pi svg{display:block;width:100%;height:100%}
-.t-prod .pn{font-size:8px;font-weight:700;margin-top:3px;padding:0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.t-prod .pp{font-size:8.5px;color:var(--primary-ink);font-weight:800;padding-bottom:5px}
+.t-prod{width:84px;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;text-align:center;box-shadow:var(--shadow);flex:none}
+.t-prod .pi{height:50px}.t-prod .pi svg{display:block;width:100%;height:100%}
+.t-prod .pn{font-size:9px;font-weight:700;margin-top:3px;padding:0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-prod .pp{font-size:9.5px;color:var(--primary-ink);font-weight:800;padding-bottom:5px}
 .t-prod .pp s{color:var(--muted);opacity:.6;margin-right:3px;font-weight:600}
 /* ---- kanban ---- */
 .t-kcol{background:var(--soft);border:1px solid var(--border);border-radius:9px;padding:7px 7px 9px;min-width:96px;flex:1;max-width:150px}
-.t-kcol .kh{font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;gap:4px;align-items:center}
+.t-kcol .kh{font-size:8.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:flex;gap:4px;align-items:center}
 .t-kcol .kh i{width:7px;height:7px;border-radius:99px;display:block}
-.t-kcard{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 8px;font-size:9.5px;font-weight:600;box-shadow:var(--shadow);margin-bottom:5px;transition:box-shadow .2s var(--t-ease)}
-.t-kcard .kc2{font-size:8px;color:var(--muted);font-weight:500;margin-top:1px}
+.t-kcard{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:7px 9px;font-size:10.5px;font-weight:600;box-shadow:var(--shadow);margin-bottom:5px;transition:box-shadow .2s var(--t-ease)}
+.t-kcard .kc2{font-size:9px;color:var(--muted);font-weight:500;margin-top:1px}
 .t-kcard.lift{box-shadow:0 8px 20px -8px rgba(0,0,0,.35);rotate:-2deg}
 /* ---- carry (drag) ---- */
 .t-carry{position:absolute;z-index:8;transition:transform .6s var(--t-io);margin:0!important}
@@ -235,12 +244,15 @@ export const THEATER_CSS = `
 .t-playbtn{display:grid;place-items:center;width:26px;height:26px;border-radius:99px;border:1px solid var(--border);background:var(--card);color:var(--ink);cursor:pointer;flex:none;padding:0}
 .t-playbtn:hover{border-color:var(--primary)}
 .t-playbtn svg{display:block}
-.t-cap{font-size:12px;font-weight:500;min-width:0;flex:1;line-height:1.4}
+.t-cap{font-size:12.5px;font-weight:500;min-width:0;flex:1;line-height:1.4}
 .t-dots{display:flex;gap:4px;flex:none}
 .t-dots button{width:16px;height:16px;border-radius:50%;display:grid;place-items:center;border:0;background:none;cursor:pointer;padding:0}
 .t-dots button i{width:6px;height:6px;border-radius:50%;background:var(--border);transition:background-color .2s var(--t-ease),transform .2s var(--t-ease);display:block}
 .t-dots button[aria-current=true] i{background:var(--primary);transform:scale(1.35)}
 .t-dots button:hover i{background:var(--muted)}
+.t-tc{font-size:10.5px;color:var(--muted);flex:none;font-variant-numeric:tabular-nums}
+.t-static .t-tc{display:none}
+@media(max-width:480px){.t-tc{display:none}}
 /* ---- static fallback (reduced motion; capbar stays as an opt-in Play) ---- */
 .t-story{display:none;margin:0;padding:10px 14px 12px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted)}
 .t-story li{margin:4px 0 4px 18px}
@@ -288,6 +300,7 @@ function thInit(){
       el: el, spec: spec,
       vp: el.querySelector(".t-viewport"), cam: el.querySelector(".t-camera"),
       cur: el.querySelector(".t-cursor"), capEl: el.querySelector(".t-cap"),
+      tcEl: el.querySelector(".t-tc"), tcLast: -1,
       snapshot: el.querySelector(".t-frame").innerHTML,
       time: 0, idx: 0, playing: true, userPaused: false, visible: false,
       curOn: false, camS: {s:1, x:0, y:0}, lastTs: null, holdUntil: 0
@@ -385,7 +398,8 @@ function thTick(ts){
       st.idx++;
     }
     thCap(st, thBeat(st));
-    if (st.time >= st.spec.dur){ st.holdUntil = 900; }
+    thClock(st);
+    if (st.time >= st.spec.dur){ st.holdUntil = 1500; }
   });
   requestAnimationFrame(thTick);
 }
@@ -401,8 +415,22 @@ function thCap(st, i){
   var dots = st.el.querySelectorAll(".t-dots button");
   dots.forEach(function(d, k){ d.setAttribute("aria-current", k === i ? "true" : "false"); });
 }
+function thClock(st){
+  var t = Math.max(0, Math.min(st.spec.dur, st.time));
+  var tenth = Math.floor(t / 100);
+  if (tenth === st.tcLast || !st.tcEl) return;
+  st.tcLast = tenth;
+  var sec = Math.floor(t / 1000);
+  var m = Math.floor(sec / 60), r = sec - m * 60;
+  var d = Math.round(st.spec.dur / 1000);
+  var dm = Math.floor(d / 60), dr = d - dm * 60;
+  st.tcEl.textContent = m + ":" + (r < 10 ? "0" : "") + r + " / " + dm + ":" + (dr < 10 ? "0" : "") + dr;
+}
 function thReset(st){
-  st.el.querySelector(".t-frame").innerHTML = st.snapshot;
+  var frame = st.el.querySelector(".t-frame");
+  frame.innerHTML = st.snapshot;
+  frame.classList.add("t-boot");
+  setTimeout(function(){ frame.classList.remove("t-boot"); }, 950);
   st.vp = st.el.querySelector(".t-viewport");
   st.cam = st.el.querySelector(".t-camera");
   st.cur = st.el.querySelector(".t-cursor");
@@ -418,6 +446,7 @@ function thJump(st, i){
     st.idx++;
   }
   thCap(st, i);
+  thClock(st);
   st.lastTs = null;
   if (!st.userPaused) thPlaying(st, true);
 }
@@ -725,7 +754,7 @@ export function buildStage(id, demo, title) {
   <figcaption><span class="demo-play">▶</span> <strong>${title}</strong><span class="demo-sim">SIMULATED</span><span class="demo-dur">${durLabel}</span></figcaption>
   <div class="t-stage" data-demo="${id}">
     <div class="t-frame">${chrome}<div class="t-viewport" style="height:${h}px"><div class="t-camera"><div class="t-app${bare ? " bare" : ""}">${snav}<div class="t-main${center ? " center" : ""}">${crumbHtml}${demo.html}</div></div><div class="t-cursor" aria-hidden="true">${CURSOR_SVG}</div></div><div class="t-toast" aria-live="polite"></div></div></div>
-    <div class="t-capbar"><button class="t-playbtn" aria-label="Pause"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="5" height="16" rx="1.2"/><rect x="14" y="4" width="5" height="16" rx="1.2"/></svg></button><span class="t-cap">${beats[0].cap}</span><span class="t-dots" role="group" aria-label="Beats"></span></div>
+    <div class="t-capbar"><button class="t-playbtn" aria-label="Pause"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="4" width="5" height="16" rx="1.2"/><rect x="14" y="4" width="5" height="16" rx="1.2"/></svg></button><span class="t-cap">${beats[0].cap}</span><span class="t-dots" role="group" aria-label="Beats"></span><span class="t-tc t-num">0:00 / ${durLabel}</span></div>
     <ol class="t-story">${beats.map((b) => `<li>${b.cap}</li>`).join("")}</ol>
     <script type="application/json">${spec}</script>
   </div>
