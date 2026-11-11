@@ -19,7 +19,7 @@ related:
 :::cards
 - **Workspace** — your company: everything inside belongs to it, and two never mix. [C-01](#/C-01)
 - **Board** — a smart ledger: rows are things, columns are facts. [C-02](#/C-02)
-- **System board (locked)** — a board a Module Window maintains; the window writes it, you extend it. [C-04](#/C-04)
+- **System board** — a board a Module Window maintains; the window writes its own columns, you extend it with yours. [C-04](#/C-04)
 - **Module Window** — an intelligent screen on top of boards: the cockpit, never the database. [C-03](#/C-03)
 - **Group** — a colored section inside a board: a stage you'd say out loud. [C-06](#/C-06)
 - **Item (row)** — one real thing: one order, one customer, one task. [C-06](#/C-06)

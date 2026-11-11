@@ -357,6 +357,179 @@ export const DEMOS_CORE = {
     ],
   },
 
+  // Recovered 2026-11-11 from the app bundle (app commit 88a1c5924, 2026-07-28) — its source commit was never pushed.
+  "module-writes-back": {
+    "crumb": "Money · Invoice board",
+    "cat": 0,
+    "h": 290,
+    "center": false,
+    "html": "<div style=\"max-width:460px\"><table class=\"t-tbl\"><thead><tr><th>Invoice</th><th>Client</th><th style=\"text-align:right\">Total</th><th>Status</th><th><span class=\"t-in\" data-t=\"nth\">Notes — yours</span></th></tr></thead><tbody><tr class=\"\" data-t=\"lrow\"><td><span class=\"t-mono\">INV-0142</span></td><td>Anika</td><td class=\"r t-num\">$59</td><td><span class=\"t-chip\" data-s=\"ok\" data-t=\"s1\">Paid</span></td><td><span class=\"t-in\" data-t=\"mycol\">✎ call before delivery</span></td></tr><tr class=\"\" data-t=\"r2\"><td><span class=\"t-mono\">INV-0141</span></td><td>Atlas Studio</td><td class=\"r t-num\">$120</td><td><span class=\"t-chip\" data-s=\"acc\" data-t=\"s2\">Sent</span></td><td></td></tr><tr class=\"\" data-t=\"r3\"><td><span class=\"t-mono\">INV-0140</span></td><td>Tomas</td><td class=\"r t-num\">$26</td><td><span class=\"t-chip\" data-s=\"acc\" data-t=\"s3\">Sent</span></td><td></td></tr><tr class=\"\" data-t=\"r4\"><td><span class=\"t-mono\">INV-0139</span></td><td>Priya S.</td><td class=\"r t-num\">$69</td><td><span class=\"t-chip\" data-s=\"warn\" data-t=\"s4\">Overdue</span></td><td></td></tr></tbody></table><div class=\"t-in\" data-t=\"expl\" style=\"margin-top:10px\"><div class=\"t-win\"><div class=\"wh\">Who writes this column?</div><div class=\"wb\">The Invoice Center does. It rewrites Status on every refresh — over anything typed by hand.</div></div></div></div>",
+    "beats": [
+      {
+        "cap": "Built-in boards open like any other board now — no padlock, nothing greyed out.",
+        "d": 3600,
+        "cues": [
+          [
+            500,
+            "pulse",
+            "s2"
+          ],
+          [
+            1000,
+            "pulse",
+            "s4"
+          ]
+        ]
+      },
+      {
+        "cap": "So you fix Priya's status by hand. It saves. It looks right.",
+        "d": 4400,
+        "cues": [
+          [
+            300,
+            "cur",
+            "s4"
+          ],
+          [
+            1200,
+            "click",
+            "s4"
+          ],
+          [
+            1400,
+            "chip",
+            "s4",
+            "ok",
+            "Paid"
+          ],
+          [
+            1900,
+            "toast",
+            "Saved"
+          ],
+          [
+            2900,
+            "curx"
+          ],
+          [
+            3600,
+            "toastx"
+          ]
+        ]
+      },
+      {
+        "cap": "But that column has an owner — the Invoice Center is its writer.",
+        "d": 4000,
+        "cues": [
+          [
+            300,
+            "show",
+            "expl"
+          ],
+          [
+            700,
+            "cam",
+            "expl",
+            1.25
+          ]
+        ]
+      },
+      {
+        "cap": "Its next refresh takes the column back. Your edit is gone, with no warning.",
+        "d": 4600,
+        "cues": [
+          [
+            0,
+            "hide",
+            "expl"
+          ],
+          [
+            200,
+            "wide"
+          ],
+          [
+            700,
+            "flash",
+            "lrow"
+          ],
+          [
+            1000,
+            "flash",
+            "r2"
+          ],
+          [
+            1300,
+            "flash",
+            "r3"
+          ],
+          [
+            1600,
+            "flash",
+            "r4"
+          ],
+          [
+            1900,
+            "chip",
+            "s4",
+            "warn",
+            "Overdue"
+          ],
+          [
+            2700,
+            "pulse",
+            "s4"
+          ]
+        ]
+      },
+      {
+        "cap": "Put your own column beside it instead — the module never touches that one.",
+        "d": 4800,
+        "cues": [
+          [
+            200,
+            "show",
+            "nth"
+          ],
+          [
+            600,
+            "show",
+            "mycol"
+          ],
+          [
+            900,
+            "cam",
+            "mycol",
+            1.35
+          ],
+          [
+            1200,
+            "pulse",
+            "mycol"
+          ],
+          [
+            2200,
+            "wide"
+          ],
+          [
+            2600,
+            "flash",
+            "lrow"
+          ],
+          [
+            2900,
+            "flash",
+            "r4"
+          ],
+          [
+            3400,
+            "settle",
+            "mycol"
+          ]
+        ]
+      }
+    ]
+  },
+
   "locked-cell": {
     crumb: "Money · Invoice board", cat: 0, h: 290, center: false,
     html:
